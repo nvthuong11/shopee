@@ -21,7 +21,7 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Phuc vu cho viec import don gian hon */
-    "baseUrl": "src"
+    "baseUrl": "."
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

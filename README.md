@@ -47,6 +47,7 @@ yarn add eslint prettier @typescript-eslint/eslint-plugin @typescript-eslint/par
 Cấu hình ESLint
 
 Tạo file `.eslintrc.cjs` tại thư mục root
+// Đuôi file .cjs to support vite
 
 ```js
 /* eslint-disable @typescript-eslint/no-var-requires */
@@ -218,7 +219,7 @@ export default defineConfig({
   css: {
     devSourcemap: true
   },
-  resolve: {
+  resolve: { // Fix moi truong terminal
     alias: {
       src: path.resolve(__dirname, './src')
     }
@@ -272,3 +273,20 @@ Các bạn thêm đoạn code này vào `settings.json` của VS Code
   "tailwindCSS.experimental.classRegex": ["[a-zA-Z]*class[a-zA-Z]*='([^']+)'"]
 }
 ```
+
+############################################################################################
+
+# vite config enable sourcemap
+  vite.config.ts
+  ```  
+  css: {
+    devSourcemap: true
+  }
+  ```
+# Fix import
+
+Khi import auto của VS Code thì ESlint sẽ báo lỗi
+Có 3 môi trường chính:
+1. VS code: khi đưa chuột vào và ctrl + click thì chạy đúng file
+2. ES Lint
+3. Môi trường Terminal
