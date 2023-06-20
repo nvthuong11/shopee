@@ -1,14 +1,15 @@
 import { Link, useMatch } from 'react-router-dom'
+import path from 'src/constants/path'
 
 function RegisterHeader() {
-  const registerMatch = useMatch('/register')
+  const registerMatch = useMatch(path.register)
   const isRegister = Boolean(registerMatch)
 
   return (
     <header className='py-5'>
       <div className='container'>
         <nav className='flex items-end'>
-          <Link to='/'>
+          <Link to={path.home}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               className='fill-orange stroke-orange'
