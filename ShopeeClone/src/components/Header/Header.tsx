@@ -7,13 +7,14 @@ import { AppContext } from 'src/contexts/app.context'
 import path from 'src/constants/path'
 
 export default function Header() {
-  const { isAuthenticated, setIsAuthenticated } = useContext(AppContext)
+  const { isAuthenticated, setIsAuthenticated, setProfile, profile } = useContext(AppContext)
 
   const logoutMutation = useMutation({
     mutationFn: () => logoutAccount(),
     // mutationFn: logoutAccount
     onSuccess: () => {
       setIsAuthenticated(false)
+      setProfile(null)
     }
   })
 
@@ -95,7 +96,7 @@ export default function Header() {
                   className='h-full w-full rounded-full object-cover'
                 />
               </div>
-              <div>duthanhduoc</div>
+              <div>{profile?.email}</div>
             </Popover>
           )}
           {!isAuthenticated && (
