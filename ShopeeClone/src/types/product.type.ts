@@ -20,7 +20,7 @@ export interface Product {
 
 export interface ProductList {
   products: Product[]
-  paginate: {
+  pagination: {
     page: number
     limit: number
     page_size: number
@@ -29,7 +29,7 @@ export interface ProductList {
 
 export interface ProductListConfig {
   page?: number
-  limit?: number
+  limit?: number | string
   sort_by?: 'createdAt' | 'view' | 'sold' | 'price'
   order?: 'asc' | 'desc'
   exclude?: string
