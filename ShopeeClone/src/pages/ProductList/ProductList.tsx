@@ -31,6 +31,8 @@ function ProductList() {
     isUndefined
   )
 
+  console.log({ queryConfig })
+
   const { data: productData } = useQuery({
     queryKey: ['products', queryConfig],
     queryFn: () => {
