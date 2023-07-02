@@ -1,6 +1,6 @@
 import { Link, createSearchParams, useNavigate } from 'react-router-dom'
 import { useForm, Controller } from 'react-hook-form'
-import { schema } from 'src/utils/rules'
+import { Schema, schema } from 'src/utils/rules'
 import { yupResolver } from '@hookform/resolvers/yup'
 import Button from 'src/components/Button'
 import path from 'src/constants/path'
@@ -8,16 +8,19 @@ import { queryConfig } from '../ProductList'
 import { Category } from 'src/types/category.type'
 import classNames from 'classnames'
 import InputNumber from 'src/components/InputNumber'
+import { NoUndefinedField } from 'src/utils/utils'
 
 interface Props {
   queryConfig: queryConfig
   categories: Category[]
 }
 
-type FormData = {
-  price_min: string
-  price_max: string
-}
+// type FormData = {
+//   price_min: string
+//   price_max: string
+// }
+
+type FormData = NoUndefinedField<Pick<Schema, 'price_max' | 'price_min'>>
 
 const priceSchema = schema.pick(['price_min', 'price_max'])
 
