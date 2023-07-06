@@ -4,7 +4,7 @@ import { Schema, schema } from 'src/utils/rules'
 import { yupResolver } from '@hookform/resolvers/yup'
 import Button from 'src/components/Button'
 import path from 'src/constants/path'
-import { queryConfig } from '../../ProductList'
+import { QueryConfig } from 'src/hooks/useQueryConfig'
 import { Category } from 'src/types/category.type'
 import classNames from 'classnames'
 import InputNumber from 'src/components/InputNumber'
@@ -13,7 +13,7 @@ import RatingStars from '../RatingStars/RatingStars'
 import { omit } from 'lodash'
 
 interface Props {
-  queryConfig: queryConfig
+  queryConfig: QueryConfig
   categories: Category[]
 }
 
