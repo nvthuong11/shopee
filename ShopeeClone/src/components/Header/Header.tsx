@@ -49,7 +49,7 @@ export default function Header() {
                 placeholder='Free Ship Đơn Từ 0Đ'
                 {...register('name')}
               />
-              <button className='flex-shrink-0 rounded-sm bg-orange py-2 px-6 hover:opacity-90'>
+              <button className='flex-shrink-0 rounded-sm bg-orange px-6 py-2 hover:opacity-90'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
@@ -70,8 +70,8 @@ export default function Header() {
           <div className='col-span-1 justify-self-end'>
             <Popover
               renderPopover={
-                <div className='relative max-w-[400px] rounded-sm border border-gray-200 bg-white text-sm shadow-md'>
-                  {purchasesInCart ? (
+                <div className='relative  max-w-[400px] rounded-sm border border-gray-200 bg-white text-sm shadow-md'>
+                  {purchasesInCart && purchasesInCart.length > 0 ? (
                     <div className='p-2'>
                       <div className='capitalize text-gray-400'>Sản phẩm mới thêm</div>
                       <div className='mt-5'>
@@ -130,8 +130,8 @@ export default function Header() {
                     d='M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z'
                   />
                 </svg>
-                {purchasesInCart && (
-                  <span className='absolute top-[-5px] left-[2px] rounded-full bg-white px-[9px] py-[1px] text-xs text-orange '>
+                {purchasesInCart && purchasesInCart.length > 0 && (
+                  <span className='absolute left-[2px] top-[-5px] rounded-full bg-white px-[9px] py-[1px] text-xs text-orange '>
                     {purchasesInCart?.length}
                   </span>
                 )}
