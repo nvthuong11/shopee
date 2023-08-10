@@ -57,6 +57,9 @@ class Http {
           const message = data.message || error.message
           toast.error(message)
         }
+        if (error.response?.status === HttpStatusCode.Unauthorized) {
+          clearLS()
+        }
         // Any status codes that falls outside the range of 2xx cause this function to trigger
         // Do something with response error
         return Promise.reject(error)
