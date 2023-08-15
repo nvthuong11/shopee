@@ -11,7 +11,6 @@ import Popover from '../Popover'
 export default function NavHeader() {
   const queryClient = useQueryClient()
   const { setIsAuthenticated, isAuthenticated, setProfile, profile } = useContext(AppContext)
-  console.log(profile)
 
   const logoutMutation = useMutation({
     mutationFn: authApi.logoutAccount,
