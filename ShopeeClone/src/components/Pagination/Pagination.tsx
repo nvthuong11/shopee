@@ -1,11 +1,11 @@
 import { memo } from 'react'
 import { Link, createSearchParams } from 'react-router-dom'
 import classNames from 'classnames'
-import { queryConfig } from 'src/pages/ProductList/ProductList'
+import { QueryConfig } from 'src/hooks/useQueryConfig'
 import path from 'src/constants/path'
 
 interface Props {
-  queryConfig: queryConfig
+  queryConfig: QueryConfig
   pageSize: number
 }
 
