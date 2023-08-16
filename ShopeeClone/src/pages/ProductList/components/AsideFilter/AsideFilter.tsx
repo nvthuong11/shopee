@@ -10,7 +10,7 @@ import classNames from 'classnames'
 import InputNumber from 'src/components/InputNumber'
 import { NoUndefinedField } from 'src/utils/utils'
 import RatingStars from '../RatingStars/RatingStars'
-import { omit } from 'lodash'
+import omit from 'lodash/omit'
 
 interface Props {
   queryConfig: QueryConfig
@@ -32,7 +32,7 @@ export default function AsideFilter({ queryConfig, categories }: Props) {
   const {
     control,
     handleSubmit,
-    watch,
+    // watch,
     trigger, // to trigger when vaidate form
     formState: { errors }
   } = useForm<FormData>({

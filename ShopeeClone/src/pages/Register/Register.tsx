@@ -5,7 +5,11 @@ import { Schema, schema } from 'src/utils/rules'
 import Input from 'src/components/Input'
 import { useMutation } from '@tanstack/react-query'
 import authApi from 'src/apis/auth.api'
-import { omit } from 'lodash'
+// Không có tính năng tree-shaking
+// import { omit } from 'lodash'
+
+// Import chỉ mỗi function omit
+import omit from 'lodash/omit'
 import { isAxiosUnprocessableEntityError } from 'src/utils/utils'
 import { ErrorResponse } from 'src/types/utils.type'
 import { useContext } from 'react'

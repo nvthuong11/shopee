@@ -9,7 +9,7 @@ import { purchasesStatus } from 'src/constants/purchase'
 import { Purchase } from 'src/types/purchase.type'
 import { formatCurrency, generateNameId } from 'src/utils/utils'
 import { produce } from 'immer'
-import { keyBy } from 'lodash'
+import keyBy from 'lodash/keyBy'
 import { toast } from 'react-toastify'
 import { AppContext } from 'src/contexts/app.context'
 import noproduct from 'src/assets/images/no-product.png'
@@ -151,7 +151,7 @@ export default function Cart() {
           <>
             <div className='overflow-auto'>
               <div className='min-w-[1000px]'>
-                <div className='grid grid-cols-12 rounded-sm bg-white py-5 px-9 text-sm capitalize text-gray-500 shadow'>
+                <div className='grid grid-cols-12 rounded-sm bg-white px-9 py-5 text-sm capitalize text-gray-500 shadow'>
                   <div className='col-span-6'>
                     <div className='flex items-center'>
                       <div className='flex flex-shrink-0 items-center justify-center pr-3'>
@@ -179,7 +179,7 @@ export default function Cart() {
                     {extendedPurchases.map((purchase, index) => (
                       <div
                         key={purchase._id}
-                        className='mb-5 grid grid-cols-12 items-center rounded-sm border border-gray-200 bg-white py-5 px-4 text-center text-sm text-gray-500 first:mt-0'
+                        className='mb-5 grid grid-cols-12 items-center rounded-sm border border-gray-200 bg-white px-4 py-5 text-center text-sm text-gray-500 first:mt-0'
                       >
                         <div className='col-span-6'>
                           <div className='flex'>
@@ -202,7 +202,7 @@ export default function Cart() {
                                 >
                                   <img alt={purchase.product.name} src={purchase.product.image} />
                                 </Link>
-                                <div className='flex-grow px-2 pt-1 pb-2'>
+                                <div className='flex-grow px-2 pb-2 pt-1'>
                                   <Link
                                     to={`${path.home}${generateNameId({
                                       name: purchase.product.name,
