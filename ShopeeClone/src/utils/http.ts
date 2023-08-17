@@ -51,6 +51,7 @@ class Http {
       (response) => {
         // Any status code that lie within the range of 2xx cause this function to trigger
         // Do something with response data
+        console.log('response')
         const { url } = response.config
         if (url === URL_LOGIN || url === URL_REGISTER) {
           // this.accessToken = (response.data as AuthResponse).data.access_token
@@ -91,7 +92,7 @@ class Http {
           const { url } = config
           // Trường hợp Token hết hạn và request đó không phải là của request refresh token
           // thì chúng ta mới tiến hành gọi refresh token
-          console.log(config)
+          // console.log(config)
           if (isAxiosExpiredTokenError(error) && url !== URL_REFRESH_TOKEN) {
             // Hạn chế gọi 2 lần handleRefreshToken
             this.refreshTokenRequest = this.refreshTokenRequest
@@ -105,6 +106,8 @@ class Http {
 
             return this.refreshTokenRequest.then((access_token) => {
               // Nghĩa là chúng ta tiếp tục gọi lại request cũ vừa bị lỗi
+              console.log({ access_token })
+              console.log(this.accessToken)
               return this.instance({ ...config, headers: { ...config.headers, authorization: access_token } })
             })
           }
