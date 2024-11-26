@@ -1,7 +1,10 @@
 import { ButtonHTMLAttributes } from 'react'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  isLoading?: boolean
+  /** Show loading true or false */
+  isLoading?: boolean,
+  /** class of button */
+  className?: string,
 }
 
 export default function Button(props: ButtonProps) {
